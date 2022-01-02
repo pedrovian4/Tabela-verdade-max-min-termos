@@ -35,6 +35,8 @@ def armazenar_variaveis():
     for i in range(int(quantidade_de_letras)):
         letras_usadas.append(alfabeto[i])
     letras_usadas.append('S')
+    return letras_usadas
+
 #irá escrever a tabela verdade em um arquivo txt
 def escrever_tabela ():
     arquivoTabelaVerdade = abrir_e_criar_tabela_verdade()

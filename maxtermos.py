@@ -1,22 +1,36 @@
-import re
+import tabelaverdade as tabela
 
 def ler_tabela():
     with open("tabelaVerdade.txt") as file:
         linhas =list(file.readlines())
     return linhas
 
-def min_termos():
-    array_string=[]
+#Se a coluna S for 1 então a produto da soma das variaveis da coluna
+#Se uma variavel for 0  para uma coluna 1 S então essa variavel é barrar
+
+
+def formatar_tabela():
     aux=[]
-    #posição 1 da tabela contém as variaveis para formar a expressão
-    #indices a serem pulados na comparação 
-    #por serem caracteres especiais
-    #0,2,4,6,8,10 -> converter cada posição para uma lista
-    #
-    #11 -> indice do input, responsavel pela operação
-    #12-> quebra de linha, ignorar
+    equacao:str=" "
+    for i in range(1,len(ler_tabela())):
+        for j in range(len(ler_tabela()[i])):
+            if str(ler_tabela()[i][j])=='0' or str(ler_tabela()[i][j])=='1' or str(ler_tabela()[i][j]) in tabela.alfabeto:
+                aux.append(str(ler_tabela()[i][j]))
+    return aux
 
 
-min_termos()
+def min_terms():
+    aux_index:int
+    equacao:str
+    for i in range (len(formatar_tabela())):
+        aux_index= tabela.quantidade_variaveis()*(i+2)
+        if  aux_index>len(formatar_tabela()):
+            break
+        if formatar_tabela()[aux_index] =='1':
+            for i in range (aux_index):
+                print('#')
+                #fazer comparação aqui
 
-print(ler_tabela()[1])
+print(len(formatar_tabela()))
+min_terms()
+
