@@ -13,7 +13,7 @@ arquivoTabela=None
 #função para abertura de arquivo
 def abrir_inputs ():
     with open ("input.txt") as file:
-        linhas= file.readlines()
+        linhas= list(file.readlines())
         return linhas
 
 #criar e abrir
@@ -34,7 +34,7 @@ def armazenar_variaveis():
         letras_usadas.clear()
     for i in range(int(quantidade_de_letras)):
         letras_usadas.append(alfabeto[i])
-
+    letras_usadas.append('S')
 #irá escrever a tabela verdade em um arquivo txt
 def escrever_tabela ():
     arquivoTabelaVerdade = abrir_e_criar_tabela_verdade()
@@ -43,6 +43,8 @@ def escrever_tabela ():
     for i in range(2**quantidade_variaveis()):
         line.append([i//2**j%2 for j in reversed(range(quantidade_variaveis()))])
     line=[letras_usadas,*line]
+    for i in range(1,len(line)):
+        line[i]+=abrir_inputs()[i-1]
     for i in line:
         pularlinhas+='\n'+str(i)
     arquivoTabelaVerdade.write(pularlinhas)
