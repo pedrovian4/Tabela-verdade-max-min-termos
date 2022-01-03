@@ -1,12 +1,14 @@
 import tabela_verdade as tabela
 
+
+#nesse arquivo vamos abrir a o arquivo gerado no  tabela_verdade.py e ler como uma lista
 def ler_tabela():
     with open("tabelaVerdade.txt") as file:
         linhas =list(file.readlines())
     return linhas
 
-#Se a coluna S for 1 então a produto da soma das variaveis da coluna
-#Se uma variavel for 0  para uma coluna 1 S então essa variavel é barrada
+
+#Logo após leitura será feito a remoção de characteres especiais
 def formatar_tabela():
     aux=[]
     equacao:str=" "
@@ -16,11 +18,15 @@ def formatar_tabela():
                 aux.append(str(ler_tabela()[i][j]))
     return aux
 
-def convert_1d_to_2d(l, cols):
+#Logo em seguida temos uma função para converter um array 1d para 2d
+#Isso é feito para facilitar as comprações e localização das variabeis 
+def converter_1d_para_2d(l, cols):
     return [l[i:i + cols] for i in range(0, len(l), cols)]
 
+
+#aqui é realizado as comparações e retirada da equação
 def min_terms():
-    arr= convert_1d_to_2d(formatar_tabela(),tabela.quantidade_variaveis()+1)
+    arr= converter_1d_para_2d(formatar_tabela(),tabela.quantidade_variaveis()+1)
     equa=''
     for i in range(1,len(arr)):
         for j in range(len(arr[i])):
