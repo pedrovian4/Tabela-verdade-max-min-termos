@@ -27,6 +27,7 @@ def quantidade_variaveis():
     for i in range(quantidade_inputs):
             if 2**i == quantidade_inputs:
                 return i
+    return "Error"
 #Armazenar as variaveis necessarias para criação da tabela verdade seguindo uma ordem alfabetica
 def armazenar_variaveis():
     quantidade_de_letras = quantidade_variaveis()
