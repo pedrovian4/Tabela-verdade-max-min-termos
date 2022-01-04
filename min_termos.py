@@ -28,15 +28,19 @@ def converter_1d_para_2d(l, cols):
 def min_terms():
     arr= converter_1d_para_2d(formatar_tabela(),tabela.quantidade_variaveis()+1)
     equa=''
+    k= False
     for i in range(1,len(arr)):
         for j in range(len(arr[i])):
             if arr[i][tabela.quantidade_variaveis()]=='1':
                 if j< tabela.quantidade_variaveis():
+                    k = True
                     if arr[i][j]=='0':
                         equa+=arr[0][j]+"'"
                     else:
                         equa+=arr[0][j]
-        equa+='+'
+        if k:
+            k = not k
+            equa+='+'
     print(equa)
 
 def executar():
