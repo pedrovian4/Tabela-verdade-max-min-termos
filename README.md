@@ -1,6 +1,6 @@
-#Universidade Federal do Amapá
-###Bacharelado em Ciência da computação
-####Aluno: João Pedro Viana Bezerra
+# Universidade Federal do Amapá
+### Bacharelado em Ciência da computação
+#### Aluno: João Pedro Viana Bezerra
 
 - Para testar o Programa basta colocar os estados no arquivo input.txt
 - Para rodar o programa basta python3 main.py no terminal
